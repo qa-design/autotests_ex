@@ -15,3 +15,12 @@ class ProductPage(BasePage):
     def check_price_item_added_to_basket(self):
         assert self.browser.find_element(*PromoPageLocators.ADDED_PRICE).text == \
                self.browser.find_element(*PromoPageLocators.CORRECT_PRICE).text, 'Price of added item is incorrect'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*PromoPageLocators.SUCCESS_MESSAGE),\
+            "Success message is presented"
+
+    def should_disappear_of_success_message(self):
+        assert not self.is_disappeared(*PromoPageLocators.SUCCESS_MESSAGE),\
+            "Success message is disapperared"
+

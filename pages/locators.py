@@ -2,14 +2,30 @@ from selenium.webdriver.common.by import By
 import pytest
 
 
-class MainPageLocators:
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, '#login_link_inc')
+    BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, '.btn-group>a')
+
+
+class BasketPageLocators:
+    URL = 'http://selenium1py.pythonanywhere.com/en-gb/basket/'
+    BASKET_EMPTY_MESSAGE = (By.CSS_SELECTOR, '#content_inner>p')
+    BASKET_ITEM_IS_ADDED = (By.CSS_SELECTOR, '.basket-title>.row>h2')
+
+
+class MainPageLocators:
+    URL = 'http://selenium1py.pythonanywhere.com/en-gb/'
 
 
 class LoginPageLocators:
     URL = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
     LOGIN_FORM = (By.CSS_SELECTOR, '#login_form')
     REGISTER_FORM = (By.CSS_SELECTOR, '#register_form')
+
+
+class ProductPageLocators:
+    URL = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
 
 
 class PromoPageLocators:
@@ -26,9 +42,10 @@ class PromoPageLocators:
                          ),
                          "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                          "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
-    URL = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019'
+    URL = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     ADD_TO_CART_BTN = (By.CSS_SELECTOR, 'button.btn-add-to-basket')
     NAME_ADDED_ITEM_TO_BASKET = (By.CSS_SELECTOR, '.alertinner>strong')
     CORRECT_NAME_ITEM = (By.CSS_SELECTOR, '.product_main>h1')
     ADDED_PRICE = (By.CSS_SELECTOR, '.alertinner>p>strong')
     CORRECT_PRICE = (By.CSS_SELECTOR, '.product_main>p.price_color')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alert-success')
